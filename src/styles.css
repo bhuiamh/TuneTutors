@@ -1,0 +1,17 @@
+:root {
+    --my-color: #fff;
+    /* or any other variables/style */
+  }
+  
+  .light {
+    --my-color: #fff;
+  }
+  
+  .dark {
+    --my-color: #000;
+  }
+  
+  .pink {
+    --my-color: #ffabc8;
+  }
+  
