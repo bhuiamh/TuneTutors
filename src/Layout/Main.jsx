@@ -3,6 +3,7 @@ import Navbar from "../pages/shared/Navbar";
 import Footer from "../pages/shared/Footer";
 import banner from "../../src/assets/banner.png";
 import "./Main.css";
+import Slider from "../pages/Slider";
 
 const Main = () => {
   return (
@@ -10,7 +11,7 @@ const Main = () => {
       <Navbar></Navbar>
       <div>
         <div className="pt-24 text-center">
-          <h1>Im the leader</h1>
+          <Slider></Slider>
         </div>
         <div className="flex flex-col md:flex-row pt-24">
           <div className="w-full md:w-1/2 md:sticky md:top-0">
