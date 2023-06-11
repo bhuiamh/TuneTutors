@@ -55,6 +55,12 @@ const CallNowPage = () => {
           </a>
         </div>
       </div>
+      <div>
+        <img
+          src="https://drive.google.com/uc?export=view&id=1VQcv02RuTb0Oc7xt2XYWAzbhf7J1enG6"
+          alt=""
+        />
+      </div>
       <div className="bg-black rounded my-12 h-1 w-full"></div>
     </div>
   );

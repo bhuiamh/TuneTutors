@@ -8,14 +8,19 @@ const Main = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="flex flex-col md:flex-row pt-24">
-        <div className="w-full md:w-1/2 md:sticky md:top-0">
-          <img src={banner} alt="" />
+      <div>
+        <div className="pt-24 text-center">
+          <h1>Im the leader</h1>
         </div>
-        <div className="w-full md:w-1/2 md:h-screen md:overflow-y-auto hide-scrollbar">
-          <div className="h-screen md:max-h-screen">
-            <div className="h-full overflow-y-auto">
-              <Outlet></Outlet>
+        <div className="flex flex-col md:flex-row pt-24">
+          <div className="w-full md:w-1/2 md:sticky md:top-0">
+            <img src={banner} alt="" />
+          </div>
+          <div className="w-full md:w-1/2 md:h-screen md:overflow-y-auto hide-scrollbar">
+            <div className="h-screen md:max-h-screen">
+              <div className="h-full overflow-y-auto">
+                <Outlet></Outlet>
+              </div>
             </div>
           </div>
         </div>
