@@ -12,7 +12,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
-// import axios from "axios";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 // const auth = getAuth(app);
@@ -52,26 +52,26 @@ const AuthProvider = ({ children }) => {
   const githubSignIn = () => {
     return signInWithPopup(auth, gitHubProvider);
   };
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     if (currentUser) {
-  //       axios
-  //         .post("https://bistro-boss-server-bhuiamh.vercel.app/jwt", {
-  //           email: currentUser.email,
-  //         })
-  //         .then((data) => {
-  //           localStorage.setItem("access-token", data.data.token);
-  //           setLoading(false);
-  //         });
-  //     } else {
-  //       localStorage.removeItem("access-token");
-  //     }
-  //   });
-  //   return () => {
-  //     return unsubscribe();
-  //   };
-  // }, []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        axios
+          .post("http://localhost:5173/jwt", {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
+    });
+    return () => {
+      return unsubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
