@@ -72,9 +72,13 @@ const Navbar = () => {
       <li className="font-bold text-base md:text-xl text-orange-500">
         <Link to="/classes">Classes</Link>
       </li>
-      <li className="font-bold text-base md:text-xl text-orange-500">
-        <Link to="dashboard">Dashboard</Link>
-      </li>
+      {user ? (
+        <li className="font-bold text-base md:text-xl text-orange-500">
+          <Link to="dashboard">Dashboard</Link>
+        </li>
+      ) : (
+        <></>
+      )}
     </>
   );
   return (
