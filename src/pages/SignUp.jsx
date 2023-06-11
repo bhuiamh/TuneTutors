@@ -19,6 +19,11 @@ const SignUp = () => {
 
   const captchaRef = useRef();
   const [disabled, setDisabled] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const {
     register,
@@ -30,8 +35,23 @@ const SignUp = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
+    const confirmPassword = data.confirmpassword;
+    console.log(confirmPassword);
     const name = data.name;
     const photoURL = data.photoURL;
+    if (password !== confirmPassword) {
+      Swal.fire({
+        icon: "error",
+        title: "Password is not Matched",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      return;
+    }
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -163,6 +183,29 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Phone Number</span>
+              </label>
+              <input
+                {...register("phoneNumber", {
+                  required: true,
+                  pattern: /^[0-9]{10}$/, // Assuming a 10-digit phone number
+                })}
+                type="text"
+                placeholder="Phone Number"
+                className="input input-bordered"
+              />
+              {errors.phoneNumber?.type === "required" && (
+                <span className="text-red-600 mt-1">
+                  Phone Number is required
+                </span>
+              )}
+              {errors.phoneNumber?.type === "pattern" && (
+                <span className="text-red-600 mt-1">Invalid Phone Number</span>
+              )}
+            </div>
+
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Photo URL</span>
               </label>
               <input
@@ -179,6 +222,59 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Date of Birth</span>
+              </label>
+              <input
+                {...register("dateofbirth", {
+                  required: true,
+                })}
+                type="date"
+                placeholder="Date of Birth"
+                className="input input-bordered"
+              />
+              {errors.photoURL && (
+                <span className="text-red-600 mt-1">
+                  Date of Birth URl is required
+                </span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Gender</span>
+              </label>
+              <select
+                {...register("gender", {
+                  required: true,
+                })}
+                className="input input-bordered"
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              {errors.gender && (
+                <span className="text-red-600 mt-1">Gender is required</span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Address</span>
+              </label>
+              <textarea
+                {...register("address", {
+                  required: true,
+                })}
+                placeholder="Address"
+                className="input input-bordered"
+              ></textarea>
+              {errors.address && (
+                <span className="text-red-600 mt-1">Address is required</span>
+              )}
+            </div>
+
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -190,8 +286,46 @@ const SignUp = () => {
                     /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
                 })}
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                className="input input-bordered"
+              />
+              {errors.password?.type === "required" && (
+                <span className="text-red-600 mt-1">Password is required</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span className="text-red-600 mt-1">
+                  Password must be at least 8 characters.
+                </span>
+              )}
+              {errors.password?.type === "maxLength" && (
+                <span className="text-red-600 mt-1">
+                  Your password cannot exceed 20 characters.
+                </span>
+              )}
+              {errors.password?.type === "pattern" && (
+                <span className="text-red-600 mt-1">
+                  Password must be include at least one digit and one special
+                  character . Allowed characters are letters, digits, and the
+                  specified special characters.
+                </span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                {...register("confirmpassword", {
+                  required: true,
+                  minLength: 8,
+                  maxLength: 20,
+                  pattern:
+                    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
+                })}
+                name="confirmpassword"
+                type={showPassword ? "text" : "password"}
+                placeholder="Confirm Password"
                 className="input input-bordered"
               />
               {errors.password?.type === "required" && (
@@ -220,6 +354,15 @@ const SignUp = () => {
                   Forgot password?
                 </a>
               </label>
+              <div>
+                <input
+                  type="checkbox"
+                  id="showPasswordToggle"
+                  checked={showPassword}
+                  onChange={handleTogglePassword}
+                />
+                <label htmlFor="showPasswordToggle"> Show password</label>
+              </div>
             </div>
             <div className="form-control">
               <label className="label">

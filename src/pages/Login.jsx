@@ -16,6 +16,11 @@ const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const { signIn } = useAuth();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const location = useLocation();
 
@@ -117,7 +122,7 @@ const Login = () => {
               <input
                 required
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 className="input input-bordered"
               />
@@ -126,6 +131,15 @@ const Login = () => {
                   Forgot password?
                 </a>
               </label>
+              <div>
+                <input
+                  type="checkbox"
+                  id="showPasswordToggle"
+                  checked={showPassword}
+                  onChange={handleTogglePassword}
+                />
+                <label htmlFor="showPasswordToggle"> Show password</label>
+              </div>
             </div>
             <div className="form-control">
               <label className="label">
