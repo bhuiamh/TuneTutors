@@ -1,23 +1,21 @@
 .aws-sld {
-    --fall-animation-duration: 200ms;
-    --fall-animation-angle: 16deg;
-    --fall-scaling-in-from: 0.9;
-  
-  
-  }
-  .aws-btn {
+  --fall-animation-duration: 300ms;
+  --fall-animation-angle: 16deg;
+  --fall-scaling-in-from: 0.9;
+}
 
-    --slider-height-percentage: 45%;
-    --slider-transition-duration: 531ms;
-    --organic-arrow-thickness: 4px;
-    --organic-arrow-border-radius: 0px;
-    --organic-arrow-height: 40px;
-    --organic-arrow-color: #cf3438;
-    --control-button-width: 15%;
-    --control-button-height: 31%;
-    --control-button-background: transparent;
-    --control-bullet-color: #ff6600;
-    --control-bullet-active-color: #ff0008;
-    --loader-bar-color: #24ab12;
-    --loader-bar-height: 10px;
-    }
+.aws-btn {
+  --slider-height-percentage: 45%;
+  --slider-transition-duration: 531ms;
+  --organic-arrow-thickness: 4px;
+  --organic-arrow-border-radius: 0px;
+  --organic-arrow-height: 40px;
+  --organic-arrow-color: #cf3438;
+  --control-button-width: 15%;
+  --control-button-height: 31%;
+  --control-button-background: transparent;
+  --control-bullet-color: #ff6600;
+  --control-bullet-active-color: #ff0008;
+  --loader-bar-color: #24ab12;
+  --loader-bar-height: 10px;
+}
