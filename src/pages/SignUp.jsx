@@ -35,10 +35,14 @@ const SignUp = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-    const confirmPassword = data.confirmpassword;
+    const confirmPassword = data.confirmPassword;
     console.log(confirmPassword);
     const name = data.name;
     const photoURL = data.photoURL;
+    const phoneNumber = data.phoneNumber;
+    const dateOfBirth = data.dateOfBirth;
+    const gender = data.gender;
+    const address = data.address;
     if (password !== confirmPassword) {
       Swal.fire({
         icon: "error",
@@ -57,7 +61,16 @@ const SignUp = () => {
         const user = userCredential.user;
         updateUserProfile(name, photoURL)
           .then(() => {
-            const savedUser = { name, email, photoURL, password };
+            const savedUser = {
+              name,
+              email,
+              phoneNumber,
+              dateOfBirth,
+              gender,
+              address,
+              photoURL,
+              password,
+            };
             console.log(savedUser);
             fetch("http://localhost:5000/user", {
               method: "POST",
@@ -148,6 +161,9 @@ const SignUp = () => {
           ></iframe>
         </div>
         <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+          <div className="text-4xl text-center pt-4 font-[lilita one] text-orange-500">
+            Register
+          </div>
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -225,14 +241,14 @@ const SignUp = () => {
                 <span className="label-text">Date of Birth</span>
               </label>
               <input
-                {...register("dateofbirth", {
+                {...register("dateOfBirth", {
                   required: true,
                 })}
                 type="date"
                 placeholder="Date of Birth"
                 className="input input-bordered"
               />
-              {errors.photoURL && (
+              {errors.dateOfBirth && (
                 <span className="text-red-600 mt-1">
                   Date of Birth URl is required
                 </span>
@@ -316,14 +332,14 @@ const SignUp = () => {
                 <span className="label-text">Confirm Password</span>
               </label>
               <input
-                {...register("confirmpassword", {
+                {...register("confirmPassword", {
                   required: true,
                   minLength: 8,
                   maxLength: 20,
                   pattern:
                     /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
                 })}
-                name="confirmpassword"
+                name="confirmPassword"
                 type={showPassword ? "text" : "password"}
                 placeholder="Confirm Password"
                 className="input input-bordered"

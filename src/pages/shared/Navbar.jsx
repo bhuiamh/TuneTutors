@@ -63,17 +63,17 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li className="font-bold text-base md:text-xl text-orange-500">
+      <li className="font-bold text-base font-[lilita one] md:text-xl text-orange-500">
         <Link to="/">Home</Link>
       </li>
-      <li className="font-bold text-base md:text-xl text-orange-500">
+      <li className="font-bold text-base font-[lilita one] md:text-xl text-orange-500">
         <Link to="/instructors">Instructors</Link>
       </li>
-      <li className="font-bold text-base md:text-xl text-orange-500">
+      <li className="font-bold text-base font-[lilita one] md:text-xl text-orange-500">
         <Link to="/classes">Classes</Link>
       </li>
       {user ? (
-        <li className="font-bold text-base md:text-xl text-orange-500">
+        <li className="font-bold text-base font-[lilita one] md:text-xl text-orange-500">
           <Link to="dashboard">Dashboard</Link>
         </li>
       ) : (
@@ -127,7 +127,7 @@ const Navbar = () => {
             <></>
           )}
           {!user ? (
-            <p className="font-bold decoration-none md:text-xl text-orange-500">
+            <p className="font-bold decoration-none font-[lilita one] md:text-xl text-orange-500">
               <Link to="/login">Login</Link>
             </p>
           ) : (
@@ -141,21 +141,30 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-orange-500 rounded-box w-52"
               >
-                <li>
-                  <Link to="/profile" className="justify-between">
+                <li className="mb-2">
+                  <Link
+                    to="/profile"
+                    className="justify-between md:text-xl font-[lilita one] font-bold"
+                  >
                     Profile
                     <small className="pl-2 text-xs">{user.displayName}</small>
                   </Link>
                 </li>
-                <li>
+                <li className="mb-2">
                   <Link
+                    className="md:text-xl font-[lilita one] font-bold"
                     to={isAdmin ? "dashboard/adminhome" : "dashboard/userhome"}
                   >
                     Dashboard
                   </Link>
                 </li>
-                <li>
-                  <a onClick={handleLogOut}>Logout</a>
+                <li className="mb-2">
+                  <a
+                    className="md:text-xl font-[lilita one] font-bold"
+                    onClick={handleLogOut}
+                  >
+                    Logout
+                  </a>
                 </li>
               </ul>
             </div>

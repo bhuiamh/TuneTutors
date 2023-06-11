@@ -1,6 +1,10 @@
 import React from "react";
 import Navbar from "./shared/Navbar";
 import { Helmet } from "react-helmet-async";
+import AboutPage from "./AboutPage";
+import FAQPage from "./FAQPage";
+import ContactUs from "./ContactUs";
+import CallNowPage from "./CallNowPage";
 
 const Home = () => {
   return (
@@ -9,9 +13,10 @@ const Home = () => {
         <title>Home || TuneTutors</title>
       </Helmet>
 
-      <div className="pt-20 text-8xl text-orange-500 font-bold">
-        Hello TuneTutors
-      </div>
+      <AboutPage></AboutPage>
+      <FAQPage></FAQPage>
+      <ContactUs></ContactUs>
+      <CallNowPage></CallNowPage>
     </div>
   );
 };
