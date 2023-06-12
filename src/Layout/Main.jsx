@@ -4,6 +4,7 @@ import Footer from "../pages/shared/Footer";
 import banner from "../../src/assets/banner.png";
 import "./Main.css";
 import Slider from "../pages/Slider";
+import ClassCategory from "../pages/ClassCategory";
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
       <div>
         <div className="pt-24 text-center">
           <Slider></Slider>
+          <ClassCategory></ClassCategory>
         </div>
         <div className="flex flex-col md:flex-row pt-24">
           <div className="w-full md:w-1/2 md:sticky md:top-0">

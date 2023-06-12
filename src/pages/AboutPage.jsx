@@ -10,7 +10,7 @@ import name from "../assets/name.svg";
 
 const AboutPage = () => {
   return (
-    <div className="mt-8 px-8 text-white">
+    <div className=" px-8 text-white">
       <div className="max-w-2xl mx-auto">
         <div className="flex  items-start">
           <h1 className="text-4xl text-black font-bold mb-4">Welcome to</h1>

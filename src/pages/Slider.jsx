@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LazyLoad from "react-lazy-load";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const carouselItems = [
@@ -29,44 +30,69 @@ const Slider = () => {
     setImageLoaded(updatedImageLoaded);
   };
 
-  const allImagesLoaded = imageLoaded.every((loaded) => loaded);
-
   return (
-    <div className="carousel-container m-5">
-      <div className="carousel rounded-lg overflow-hidden">
-        <div
-          className="carousel-inner flex"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {carouselItems.map((item, index) => (
-            <div
-              key={index}
-              className="carousel-item flex-shrink-0 w-full h-96"
-            >
-              {!imageLoaded[index] && (
-                <div className="w-full h-full flex items-center justify-center">
-                  <p>Loading...</p>
-                </div>
-              )}
-              <LazyLoad height={762}>
-                <img
-                  src={item}
-                  className={`w-full h-full object-cover ${
-                    imageLoaded[index] ? "opacity-100" : "opacity-0"
-                  }`}
-                  alt={`Toy ${index + 1}`}
-                  onLoad={() => handleImageLoad(index)}
-                />
-              </LazyLoad>
-            </div>
-          ))}
+    <div className="container mx-auto m-5">
+      <div className="flex flex-col md:flex-row">
+        <div className="carousel w-full md:w-1/2 rounded-lg overflow-hidden">
+          <div
+            className="flex"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {carouselItems.map((item, index) => (
+              <div
+                key={index}
+                className="carousel-item flex-shrink-0 w-full h-96"
+              >
+                {!imageLoaded[index] && (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <progress className="progress w-56 bg-orange-500"></progress>
+                  </div>
+                )}
+                <LazyLoad height={762}>
+                  <img
+                    src={item}
+                    className={`w-full h-full object-cover ${
+                      imageLoaded[index] ? "opacity-100" : "opacity-0"
+                    }`}
+                    alt={`Toy ${index + 1}`}
+                    onLoad={() => handleImageLoad(index)}
+                  />
+                </LazyLoad>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-full md:w-1/2">
+          <h1 className="py-4 text-4xl font-bold text-orange-500">
+            Discover Your Musical Potential
+          </h1>
+          <p className="text-slate-900 p-4">
+            TuneTutors is an exceptional music instrument learning platform that
+            caters to both online and offline learners. Whether you prefer the
+            convenience of online lessons or the interactive experience of
+            in-person instruction, TuneTutors is your ultimate destination.
+            During the summer season vacation, we offer a diverse range of
+            engaging and immersive music lessons, tailored to help you unlock
+            your musical talents on your favorite instrument. Our team of expert
+            instructors specializes in teaching a variety of instruments,
+            including guitar, piano, drums, and more. With flexible scheduling
+            options, you have the freedom to learn at your own pace and in the
+            comfort of your own home through our user-friendly online platform.
+            Alternatively, you can opt for in-person lessons at one of our
+            physical locations. Experience the sheer joy of music and make the
+            most of your summer break with TuneTutors, where your journey
+            towards mastering an instrument becomes a truly enjoyable and
+            fulfilling experience, no matter where you are.
+          </p>
+          <Link>
+            {/* todo-add an appropriate button link */}
+            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded ">
+              Do Something
+            </button>
+          </Link>
         </div>
       </div>
-      {allImagesLoaded && (
-        <p className="py-4 text-4xl font-bold text-orange-500">
-          Our Special Instrument
-        </p>
-      )}
+      <div className="bg-black rounded my-12 h-1 w-full"></div>
     </div>
   );
 };
