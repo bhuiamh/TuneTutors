@@ -16,7 +16,7 @@ const Classes = () => {
     if (enrolledItems.includes(classItem._id)) {
       return Swal.fire({
         icon: "error",
-        title: "You have already enrolled this class",
+        title: "You have already Acquire this class",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -43,7 +43,7 @@ const Classes = () => {
               // refetch();
               Swal.fire({
                 icon: "success",
-                title: "Item added to Cart Successfully",
+                title: "Item added to Acquire List Successfully",
                 showConfirmButton: false,
                 timer: 1500,
               });
@@ -51,7 +51,7 @@ const Classes = () => {
             } else {
               Swal.fire({
                 icon: "error",
-                title: "You have already enrolled this class",
+                title: "You Have Already Acquire This Class",
                 showConfirmButton: false,
                 timer: 1500,
               });
@@ -138,7 +138,7 @@ const Classes = () => {
                   disabled={classItem.available_seats === 0 ? true : false}
                   className="btn btn-outline text-white hover:bg-orange-500"
                 >
-                  Enroll
+                  Acquire
                 </button>
               </div>
             </div>
