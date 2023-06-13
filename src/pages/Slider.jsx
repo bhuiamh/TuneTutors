@@ -44,8 +44,8 @@ const Slider = () => {
                 className="carousel-item flex-shrink-0 w-full h-96"
               >
                 {!imageLoaded[index] && (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <progress className="progress w-56 bg-orange-500"></progress>
+                  <div className="flex items-center justify-center">
+                    <iframe src="https://lottie.host/?file=ac25520e-2c79-49ce-8047-7be92056dd89/cytrNoAY7e.json"></iframe>
                   </div>
                 )}
                 <LazyLoad height={762}>
@@ -84,10 +84,10 @@ const Slider = () => {
             towards mastering an instrument becomes a truly enjoyable and
             fulfilling experience, no matter where you are.
           </p>
-          <Link>
+          <Link to="/classes">
             {/* todo-add an appropriate button link */}
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded ">
-              Do Something
+              Enroll Now
             </button>
           </Link>
         </div>
