@@ -41,47 +41,46 @@ const InstructorPage = () => {
                   alt="Album"
                 />
               </figure>
-              <div className="card-body md:w-1/2 md:h-auto h-1/2 p-4">
+              <div className="card-body md:w-1/2 md:h-auto h-1/2 p-4 bg-gray-200">
                 <div className="flex flex-col justify-center items-start">
                   <h2 className="card-title text-base">
                     <span className="text-gray-700">Name:</span>{" "}
-                    <span className="font-serif text-lg text-orange-500">
+                    <span className="font-serif text-orange-500">
                       {instructor.name}
                     </span>
                   </h2>
                   <p className="mb-2 card-title text-base">
                     <span className="text-gray-700">Instructor of:</span>{" "}
-                    <span className="font-serif text-lg text-orange-500">
+                    <span className="font-serif text-orange-500">
                       {instructor.classes[0]}
                     </span>
                   </p>
                   <p className="mb-2 card-title text-base">
-                    <span className="text-gray-700">Current Student:</span>{" "}
-                    <span className="font-serif text-lg text-orange-500">
+                    <span className="text-gray-700">Current Students:</span>{" "}
+                    <span className="font-serif text-orange-500">
                       {instructor.classes_taken}
                     </span>
                   </p>
                   <p className="mb-2 card-title text-base email-truncate">
                     <span className="text-gray-700">Email:</span>{" "}
-                    <span className="font-serif text-lg text-orange-500 overflow-hidden truncate max-w-[200px]">
+                    <span className="font-serif text-orange-500 overflow-hidden truncate max-w-[200px]">
                       {instructor.email}
                     </span>
                   </p>
-                  {/* todo-Do something with Button */}
-                  <div className="card-actions flex">
-                    <button className="btn btn-outline text-orange-500 flex-1 ml-2">
+                  <div className="card-actions flex mt-4">
+                    <button className="btn btn-primary flex-1 ml-2">
                       <FaThumbsUp className="mr-2" />
                       Like
                     </button>
-                    <button className="btn btn-outline text-orange-500 flex-1 ml-2">
+                    <button className="btn btn-primary flex-1 ml-2">
                       <FaComment className="mr-2" />
                       Comment
                     </button>
-                    <button className="btn btn-outline text-orange-500 flex-1 ml-2">
+                    <button className="btn btn-primary flex-1 ml-2">
                       <FaInfoCircle className="mr-2" />
                       Details
                     </button>
-                    <button className="btn btn-outline text-orange-500 flex-1 ml-2">
+                    <button className="btn btn-primary flex-1 ml-2">
                       <FaShareAlt className="mr-2" />
                       Share
                     </button>
