@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 
 const Instructors = () => {
   const {
@@ -57,7 +58,9 @@ const Instructors = () => {
 
               {/* todo-Do something with Button */}
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Like</button>
+                <button className="btn btn-primary">
+                  <Link to="/instructors">View</Link>
+                </button>
               </div>
             </div>
           </div>
