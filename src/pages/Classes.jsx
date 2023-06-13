@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useClass from "../hooks/useClass";
 import useAuth from "../providers/useAuth";
 import Swal from "sweetalert2";
@@ -6,25 +6,71 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Classes = () => {
   const [classes] = useClass();
+  const [enrolledItems, setEnrolledItems] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
   const handleEnroll = (classItem) => {
-    if (user && user.displayName) {
-      console.log("Item enrolled");
-    } else {
-      Swal.fire({
-        title: "Please Login to Order the Food",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Login Now",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
-        }
+    console.log(enrolledItems);
+    if (enrolledItems.includes(classItem._id)) {
+      return Swal.fire({
+        icon: "error",
+        title: "You have already enrolled this class",
+        showConfirmButton: false,
+        timer: 1500,
       });
+    } else {
+      if (user && user.email) {
+        const enrolledClass = {
+          userEmail: user.email,
+          enrolledId: classItem._id,
+          title: classItem.title,
+          cover_picture: classItem.cover_picture,
+          classItem: classItem.instructor_name,
+          price: classItem.price,
+        };
+        fetch("http://localhost:5000/enrolledClass", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(enrolledClass),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              // refetch();
+              Swal.fire({
+                icon: "success",
+                title: "Item added to Cart Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              setEnrolledItems([...enrolledItems, classItem._id]);
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "You have already enrolled this class",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+      } else {
+        Swal.fire({
+          title: "Please Login to Order the Food",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Login Now",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/login", { state: { from: location } });
+          }
+        });
+      }
     }
   };
 

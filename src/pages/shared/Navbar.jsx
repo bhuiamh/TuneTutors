@@ -142,27 +142,21 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-orange-500 rounded-box w-52"
               >
                 <li className="mb-2">
-                  <Link
-                    to="/profile"
-                    className="justify-between md:text-xl font-[lilita one] font-bold"
-                  >
+                  <Link to="/profile" className="justify-between text-base">
                     Profile
                     <small className="pl-2 text-xs">{user.displayName}</small>
                   </Link>
                 </li>
                 <li className="mb-2">
                   <Link
-                    className="md:text-xl font-[lilita one] font-bold"
+                    className="text-base"
                     to={isAdmin ? "dashboard/adminhome" : "dashboard/userhome"}
                   >
                     Dashboard
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <a
-                    className="md:text-xl font-[lilita one] font-bold"
-                    onClick={handleLogOut}
-                  >
+                  <a className="text-base" onClick={handleLogOut}>
                     Logout
                   </a>
                 </li>
