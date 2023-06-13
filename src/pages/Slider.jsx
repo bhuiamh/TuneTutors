@@ -51,7 +51,7 @@ const Slider = () => {
                 <LazyLoad height={762}>
                   <img
                     src={item}
-                    className={`w-full h-full object-cover ${
+                    className={`w-full h-full object-fill ${
                       imageLoaded[index] ? "opacity-100" : "opacity-0"
                     }`}
                     alt={`Toy ${index + 1}`}

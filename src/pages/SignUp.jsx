@@ -204,7 +204,7 @@ const SignUp = () => {
               <input
                 {...register("phoneNumber", {
                   required: true,
-                  pattern: /^[0-9]{10}$/, // Assuming a 10-digit phone number
+                  pattern: /^[0-9]{11}$/,
                 })}
                 type="text"
                 placeholder="Phone Number"
