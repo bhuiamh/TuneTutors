@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 
-const Instructors = () => {
+const InstructorPage = () => {
   const {
     data: instructors = [],
     isLoading: loading,
@@ -68,4 +68,4 @@ const Instructors = () => {
   );
 };
 
-export default Instructors;
+export default InstructorPage;

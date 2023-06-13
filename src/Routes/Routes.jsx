@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Navbar from "../pages/shared/Navbar";
 import Footer from "../pages/shared/Footer";
+import InstructorPage from "../pages/InstructorPage";
 
 export const router = createBrowserRouter([
   {
@@ -115,6 +116,18 @@ export const router = createBrowserRouter([
         <Navbar></Navbar>
         <div className="pt-24">
           <SignUp></SignUp>
+        </div>
+        <Footer></Footer>
+      </div>
+    ),
+  },
+  {
+    path: "instructors",
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <div className="pt-24">
+          <InstructorPage></InstructorPage>
         </div>
         <Footer></Footer>
       </div>
