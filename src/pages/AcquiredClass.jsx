@@ -7,7 +7,6 @@ import useAcquiredClass from "../hooks/useAcquiredClass";
 
 const AcquiredClass = () => {
   const [acquiredClass, refetch] = useAcquiredClass();
-  console.log(acquiredClass);
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -40,6 +39,9 @@ const AcquiredClass = () => {
 
   return (
     <div className="w-full flex justify-center items-center mt-8">
+      <Helmet>
+        <title>My Acquired || TuneTutors</title>
+      </Helmet>
       {acquiredClass.length !== 0 ? (
         <div>
           <div className=" py-4 px-6 flex items-center justify-between">

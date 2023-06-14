@@ -16,7 +16,7 @@ const CheckoutForm = ({ price, cart }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  console.log(clientSecret, "and", stripe);
+  console.log(cart, "cart");
 
   useEffect(() => {
     if (price === 0) {
@@ -34,9 +34,6 @@ const CheckoutForm = ({ price, cart }) => {
       return;
     }
 
-    // Get a reference to a mounted CardElement. Elements knows how
-    // to find your CardElement because there can only ever be one of
-    // each type of element.
     const card = elements.getElement(CardElement);
 
     if (card == null) {
@@ -48,7 +45,6 @@ const CheckoutForm = ({ price, cart }) => {
     });
 
     if (error) {
-      console.log("[error]", error);
       setCardError(error.message);
     } else {
       setCardError("");
@@ -65,7 +61,6 @@ const CheckoutForm = ({ price, cart }) => {
         },
       });
     if (confirmError) {
-      console.log(confirmError);
       setCardError("Something Went Wrong");
     }
 
@@ -79,15 +74,14 @@ const CheckoutForm = ({ price, cart }) => {
         date: new Date(),
         transaction: paymentIntent.id,
         amount: price,
-        quantity: cart?.length,
-        cartItems: cart.map((item) => item._id),
-        menuItems: cart.map((item) => item.menuItemID),
-        status: "service pending",
-        itemNames: cart.map((item) => item.name),
-      };
 
+        cartItems: cart.map((item) => item._id),
+
+        status: "service pending",
+        itemNames: cart.map((item) => item.title),
+      };
+      console.log(cart, "it will store");
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
         if (res.data.insertResult.insertedId) {
           Swal.fire({
             icon: "success",
@@ -98,7 +92,6 @@ const CheckoutForm = ({ price, cart }) => {
         }
       });
     }
-    console.log("Payment Intent", paymentIntent);
   };
   return (
     <div className="my-10 w-2/3">

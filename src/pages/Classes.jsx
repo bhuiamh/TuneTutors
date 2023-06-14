@@ -12,7 +12,6 @@ const Classes = () => {
   const location = useLocation();
 
   const handleEnroll = (classItem) => {
-    console.log(enrolledItems);
     if (enrolledItems.includes(classItem._id)) {
       return Swal.fire({
         icon: "error",

@@ -2,21 +2,21 @@ import useAuth from "../providers/useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "react-query";
 
-const useUser = () => {
+const useEnrolled = () => {
   const token = localStorage.getItem("access-token");
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
-  const { refetch, data: profile = [] } = useQuery({
-    queryKey: ["profile", user?.email],
+  const { refetch, data: enrolled = [] } = useQuery({
+    queryKey: ["enrolled", user?.email],
     enabled: !loading,
 
     queryFn: async () => {
-      const res = await axiosSecure(`/profile?email=${user?.email}`);
+      const res = await axiosSecure(`/enrolled?email=${user?.email}`);
       return res.data;
     },
   });
 
-  return [profile, refetch];
+  return [enrolled, refetch];
 };
 
-export default useUser;
+export default useEnrolled;

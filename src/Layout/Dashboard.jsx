@@ -1,53 +1,109 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
+import useAuth from "../providers/useAuth";
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logOut } = useAuth();
 
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const handleLogOut = (event) => {
+    event.preventDefault();
 
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, log out",
+      cancelButtonText: "Cancel",
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            navigate("/");
+            Swal.fire({
+              icon: "success",
+              title: "You have successfully signed out",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Something went wrong",
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          });
+      }
+    });
+  };
   const menuItem = (
     <>
       <Link
+        onClick={toggleMenu}
         to="acquiredClass"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         My Acquired Classes
       </Link>
       <Link
-        to="/"
+        to="enrolled"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         Enrolled Class
       </Link>
       <Link
-        to="/"
+        onClick={toggleMenu}
+        to=""
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         Payment History
       </Link>
       <Link
+        onClick={toggleMenu}
         to="/"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         Home
       </Link>
       <Link
+        onClick={toggleMenu}
         to="profile"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         My Profile
       </Link>
       <Link
+        onClick={toggleMenu}
         to="changePassword"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >
         Change Password
       </Link>
       <Link
+        onClick={handleLogOut}
         to="/"
         className="border-transparent text-orange-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-base font-medium"
       >

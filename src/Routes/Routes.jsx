@@ -14,6 +14,7 @@ import ChangePasswordPage from "../pages/ChangePasswordPage";
 import AcquiredClass from "../pages/AcquiredClass";
 import Profile from "../pages/Profile";
 import Payment from "../pages/Payment";
+import EnrolledClass from "../pages/EnrolledClass";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "enrolled",
+        element: <EnrolledClass></EnrolledClass>,
       },
       //     {
       //       path: "allUser",

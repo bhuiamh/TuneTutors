@@ -11,7 +11,6 @@ const Payment = () => {
 
   const total = acquiredClass.reduce((sum, item) => item.price + sum, 0);
   const price = parseFloat(total.toFixed(2));
-  console.log(price, "price");
   return (
     <div className="w-full flex justify-center items-center mt-8">
       <div>

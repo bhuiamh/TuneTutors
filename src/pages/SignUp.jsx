@@ -36,7 +36,6 @@ const SignUp = () => {
     const email = data.email;
     const password = data.password;
     const confirmPassword = data.confirmPassword;
-    console.log(confirmPassword);
     const name = data.name;
     const photoURL = data.photoURL;
     const phoneNumber = data.phoneNumber;
@@ -71,7 +70,6 @@ const SignUp = () => {
               photoURL,
               password,
             };
-            console.log(savedUser);
             fetch("http://localhost:5000/user", {
               method: "POST",
               headers: {
@@ -145,7 +143,6 @@ const SignUp = () => {
       });
       setDisabled(true);
     }
-    console.log("hei", user_captcha_value);
   };
 
   return (

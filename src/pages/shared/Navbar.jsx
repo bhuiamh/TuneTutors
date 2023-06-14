@@ -117,15 +117,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end pr-8">
-          {user && !isAdmin ? (
-            <Link to="/dashboard">
-              <button className="btn btn-outline border border-orange-500 hover:bg-orange-500 mx-3">
-                <div className="badge text-orange-500">Only for User</div>
-              </button>
-            </Link>
-          ) : (
-            <></>
-          )}
           {!user ? (
             <p className="font-bold decoration-none font-[lilita one] md:text-xl text-orange-500">
               <Link to="/login">Login</Link>
@@ -151,10 +142,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="mb-2">
-                  <Link
-                    className="text-base"
-                    to={isAdmin ? "dashboard/adminhome" : "dashboard/userhome"}
-                  >
+                  <Link className="text-base" to="dashboard/acquiredClass">
                     Dashboard
                   </Link>
                 </li>
