@@ -8,6 +8,11 @@ import Navbar from "../pages/shared/Navbar";
 import Footer from "../pages/shared/Footer";
 import InstructorPage from "../pages/InstructorPage";
 import Classes from "../pages/Classes";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import ChangePasswordPage from "../pages/ChangePasswordPage";
+import AcquiredClass from "../pages/AcquiredClass";
+import Profile from "../pages/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -44,60 +49,61 @@ export const router = createBrowserRouter([
     ],
   },
 
-  // {
-  //   path: "dashboard",
-  //   element: (
-  //     <PrivateRoute>
-  //       <Dashboard></Dashboard>
-  //     </PrivateRoute>
-  //   ),
-  //   children: [
-  //     {
-  //       path: "userhome",
-  //       element: <UserHome></UserHome>,
-  //     },
-  //     {
-  //       path: "mycart",
-  //       element: <MyCart></MyCart>,
-  //     },
-  //     {
-  //       path: "mycart/payment",
-  //       element: <Payment></Payment>,
-  //     },
-  //     {
-  //       path: "allUser",
-  //       element: (
-  //         <AdminRoute>
-  //           <AllUsers></AllUsers>
-  //         </AdminRoute>
-  //       ),
-  //     },
-  //     {
-  //       path: "adminhome",
-  //       element: (
-  //         <AdminRoute>
-  //           <AdminHome></AdminHome>
-  //         </AdminRoute>
-  //       ),
-  //     },
-  //     {
-  //       path: "addItem",
-  //       element: (
-  //         <AdminRoute>
-  //           <AddItem></AddItem>
-  //         </AdminRoute>
-  //       ),
-  //     },
-  //     {
-  //       path: "manageItems",
-  //       element: (
-  //         <AdminRoute>
-  //           <ManageItems></ManageItems>
-  //         </AdminRoute>
-  //       ),
-  //     },
-  //   ],
-  // },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "profile", element: <Profile></Profile> },
+      {
+        path: "changePassword",
+        element: <ChangePasswordPage></ChangePasswordPage>,
+      },
+      {
+        path: "acquiredClass",
+        element: <AcquiredClass></AcquiredClass>,
+      },
+      //     {
+      //       path: "mycart/payment",
+      //       element: <Payment></Payment>,
+      //     },
+      //     {
+      //       path: "allUser",
+      //       element: (
+      //         <AdminRoute>
+      //           <AllUsers></AllUsers>
+      //         </AdminRoute>
+      //       ),
+      //     },
+      //     {
+      //       path: "adminhome",
+      //       element: (
+      //         <AdminRoute>
+      //           <AdminHome></AdminHome>
+      //         </AdminRoute>
+      //       ),
+      //     },
+      //     {
+      //       path: "addItem",
+      //       element: (
+      //         <AdminRoute>
+      //           <AddItem></AddItem>
+      //         </AdminRoute>
+      //       ),
+      //     },
+      //     {
+      //       path: "manageItems",
+      //       element: (
+      //         <AdminRoute>
+      //           <ManageItems></ManageItems>
+      //         </AdminRoute>
+      //       ),
+      //     },
+    ],
+  },
   {
     path: "login",
     element: (

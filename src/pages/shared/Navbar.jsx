@@ -74,7 +74,7 @@ const Navbar = () => {
       </li>
       {user ? (
         <li className="font-bold text-base font-[lilita one] md:text-xl text-orange-500">
-          <Link to="dashboard">Dashboard</Link>
+          <Link to="/dashboard/profile">Dashboard</Link>
         </li>
       ) : (
         <></>
@@ -142,7 +142,10 @@ const Navbar = () => {
                 className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-orange-500 rounded-box w-52"
               >
                 <li className="mb-2">
-                  <Link to="/profile" className="justify-between text-base">
+                  <Link
+                    to="/dashboard/profile"
+                    className="justify-between text-base"
+                  >
                     Profile
                     <small className="pl-2 text-xs">{user.displayName}</small>
                   </Link>
