@@ -6,17 +6,18 @@ const useUser = () => {
   const token = localStorage.getItem("access-token");
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
-  const { refetch, data: acquiredClass = [] } = useQuery({
-    queryKey: ["user", user?.email],
+  const { refetch, data: profile = [] } = useQuery({
+    queryKey: ["profile", user?.email],
     enabled: !loading,
 
     queryFn: async () => {
-      const res = await axiosSecure(`/user?email=${user?.email}`);
+      const res = await axiosSecure(`/profile?email=${user?.email}`);
       return res.data;
     },
   });
+  console.log(profile, " email email");
 
-  return [acquiredClass, refetch];
+  return [profile, refetch];
 };
 
 export default useUser;
