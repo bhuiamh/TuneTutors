@@ -13,6 +13,7 @@ import Dashboard from "../Layout/Dashboard";
 import ChangePasswordPage from "../pages/ChangePasswordPage";
 import AcquiredClass from "../pages/AcquiredClass";
 import Profile from "../pages/Profile";
+import Payment from "../pages/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -66,10 +67,10 @@ export const router = createBrowserRouter([
         path: "acquiredClass",
         element: <AcquiredClass></AcquiredClass>,
       },
-      //     {
-      //       path: "mycart/payment",
-      //       element: <Payment></Payment>,
-      //     },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
+      },
       //     {
       //       path: "allUser",
       //       element: (

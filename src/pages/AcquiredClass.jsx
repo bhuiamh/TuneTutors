@@ -50,7 +50,7 @@ const AcquiredClass = () => {
             <h2 className="text-2xl font-bold text-black mr-3">
               Cost: <span className="text-slate-700">${total}</span>
             </h2>
-            <Link to="payment">
+            <Link to="/dashboard/payment">
               <button className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-700 focus:outline-none">
                 Pay
               </button>
