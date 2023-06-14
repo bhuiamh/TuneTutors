@@ -32,7 +32,6 @@ const ClassCategory = () => {
         {" "}
         {classes.map((classItem) => (
           <SwiperSlide key={classItem._id}>
-            {/* todo-need to add link dynamic */}
             <Link to="/classes">
               <div className="relative">
                 <img

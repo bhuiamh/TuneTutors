@@ -85,7 +85,6 @@ const Slider = () => {
             fulfilling experience, no matter where you are.
           </p>
           <Link to="/classes">
-            {/* todo-add an appropriate button link */}
             <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded ">
               Enroll Now
             </button>
