@@ -26,28 +26,6 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      //     { path: "menu", element: <Menu></Menu> },
-
-      //     {
-      //       path: "order/:category",
-      //       element: <Order></Order>,
-      //     },
-      //     {
-      //       path: "secret",
-      //       element: (
-      //         <PrivateRoute>
-      //           <Secret></Secret>
-      //         </PrivateRoute>
-      //       ),
-      //     },
-      //     {
-      //       path: "profile",
-      //       element: (
-      //         <PrivateRoute>
-      //           <ProfileView></ProfileView>
-      //         </PrivateRoute>
-      //       ),
-      //     },
     ],
   },
 
@@ -76,38 +54,6 @@ export const router = createBrowserRouter([
         path: "enrolled",
         element: <EnrolledClass></EnrolledClass>,
       },
-      //     {
-      //       path: "allUser",
-      //       element: (
-      //         <AdminRoute>
-      //           <AllUsers></AllUsers>
-      //         </AdminRoute>
-      //       ),
-      //     },
-      //     {
-      //       path: "adminhome",
-      //       element: (
-      //         <AdminRoute>
-      //           <AdminHome></AdminHome>
-      //         </AdminRoute>
-      //       ),
-      //     },
-      //     {
-      //       path: "addItem",
-      //       element: (
-      //         <AdminRoute>
-      //           <AddItem></AddItem>
-      //         </AdminRoute>
-      //       ),
-      //     },
-      //     {
-      //       path: "manageItems",
-      //       element: (
-      //         <AdminRoute>
-      //           <ManageItems></ManageItems>
-      //         </AdminRoute>
-      //       ),
-      //     },
     ],
   },
   {

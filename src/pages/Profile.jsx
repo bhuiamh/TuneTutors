@@ -22,7 +22,7 @@ const Profile = () => {
 
   const handleSave = () => {
     setEditMode(false);
-    fetch("http://localhost:5000/user", {
+    fetch("https://tunetutor-server.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",
