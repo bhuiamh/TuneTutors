@@ -15,6 +15,10 @@ import AcquiredClass from "../pages/AcquiredClass";
 import Profile from "../pages/Profile";
 import Payment from "../pages/Payment";
 import EnrolledClass from "../pages/EnrolledClass";
+import PaymentHistory from "../pages/PaymentHistory";
+import AllUsers from "../pages/AllUsers";
+import ManageClasses from "../pages/ManageClasses";
+import AddItem from "../pages/AddItem";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +57,26 @@ export const router = createBrowserRouter([
       {
         path: "enrolled",
         element: <EnrolledClass></EnrolledClass>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "enrolled",
+        element: <EnrolledClass></EnrolledClass>,
+      },
+      {
+        path: "menageUser",
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "menageClasses",
+        element: <ManageClasses></ManageClasses>,
+      },
+      {
+        path: "addItem",
+        element: <AddItem></AddItem>,
       },
     ],
   },

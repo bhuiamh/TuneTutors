@@ -10,9 +10,7 @@ const Instructors = () => {
   } = useQuery({
     queryKey: ["instructors"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://tunetutor-server-bhuiamh.vercel.app/instructors"
-      );
+      const res = await fetch("http://localhost:5000/instructors");
       return res.json();
     },
   });
@@ -39,7 +37,7 @@ const Instructors = () => {
             </figure>
             <div className="card-body md:w-1/2 md:h-auto h-1/2">
               <h2 className="card-title text-base">
-                Hei I'm{" "}
+                Hei I'm
                 <span className="font-serif text-xl text-orange-500">
                   {instructor.name}
                 </span>
@@ -47,12 +45,11 @@ const Instructors = () => {
               <p>
                 <span className="text-xl font-bold">
                   {instructor.classes[0]}
-                </span>{" "}
-                instructor at{" "}
+                </span>
+                instructor at
                 <span className="text-xl font-bold">TuneTutors</span>
               </p>
               <p>
-                {" "}
                 {instructor.name} is a {instructor.classes[0]} instructor at
                 TuneTutors, with {instructor.classes_taken} classes taught.
                 Contact him at {instructor.email} for more information.

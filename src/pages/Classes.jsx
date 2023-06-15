@@ -3,6 +3,7 @@ import useClass from "../hooks/useClass";
 import useAuth from "../providers/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const [classes] = useClass();
@@ -29,7 +30,7 @@ const Classes = () => {
           classItem: classItem.instructor_name,
           price: classItem.price,
         };
-        fetch("https://tunetutor-server-bhuiamh.vercel.app/enrolledClass", {
+        fetch("http://localhost:5000/enrolledClass", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -75,6 +76,9 @@ const Classes = () => {
 
   return (
     <div className="mt-8">
+      <Helmet>
+        <title>Class || TuneTutors</title>
+      </Helmet>
       <h1 className="text-4xl font-bold text-orange-500 text-center mb-4">
         Level Up Your Skills
       </h1>
@@ -113,10 +117,10 @@ const Classes = () => {
                       Available Seats :
                     </li>
                     <li className="text-xl font-semibold text-white">
-                      Student Enrolled :{" "}
+                      Student Enrolled :
                     </li>
                     <li className="text-xl font-semibold text-white">
-                      Course Coast :{" "}
+                      Course Coast :
                     </li>
                   </ul>
                   <ul className="text-start">

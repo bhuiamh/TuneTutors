@@ -83,7 +83,7 @@ const Footer = () => {
             </div>
             <div className="flex justify-end mt-4">
               <p className="text-base mb-0">
-                © 2023 TuneTutor Inc. All rights reserved.
+                © 2023 TuneTutors Inc. All rights reserved.
               </p>
             </div>
           </div>

@@ -29,7 +29,6 @@ const ClassCategory = () => {
         modules={[Pagination]}
         className="mySwiper mb-24"
       >
-        {" "}
         {classes.map((classItem) => (
           <SwiperSlide key={classItem._id}>
             <Link to="/classes">
@@ -42,8 +41,8 @@ const ClassCategory = () => {
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute bottom-0 w-full text-center">
                   <h3 className="md:text-4xl uppercase text-orange-500 font-bold shadow-xl">
-                    {classItem.title}{" "}
-                    <span className="md:text-2xl text-slate-300">tutor</span>{" "}
+                    {classItem.title}
+                    <span className="md:text-2xl text-slate-300">tutor</span>
                     <br />
                   </h3>
                   <h2 className="md:text-3xl shadow-xl pb-10 text-white font-bold">

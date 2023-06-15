@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import {
   FaComment,
   FaInfoCircle,
@@ -15,14 +16,15 @@ const InstructorPage = () => {
   } = useQuery({
     queryKey: ["instructors"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://tunetutor-server.vercel.app/instructors"
-      );
+      const res = await fetch("http://localhost:5000/instructors");
       return res.json();
     },
   });
   return (
     <div className="mt-8">
+      <Helmet>
+        <title>Instructors || TuneTutors</title>
+      </Helmet>
       <h1 className="text-4xl font-bold text-orange-500 text-center mb-4">
         Meet Our Skilled Instructors
       </h1>
@@ -43,46 +45,42 @@ const InstructorPage = () => {
                   alt="Album"
                 />
               </figure>
-              <div className="card-body md:w-1/2 md:h-auto h-1/2 p-4 bg-gray-200">
+              <div className="card-body md:w-1/2 md:h-auto h-1/2 p-4 bg-black bg-opacity-50">
                 <div className="flex flex-col justify-center items-start">
                   <h2 className="card-title text-base">
-                    <span className="text-gray-700">Name:</span>{" "}
-                    <span className="font-serif text-orange-500">
-                      {instructor.name}
-                    </span>
+                    <span className="text-white">Name:</span>
+                    <span className=" text-white">{instructor.name}</span>
                   </h2>
                   <p className="mb-2 card-title text-base">
-                    <span className="text-gray-700">Instructor of:</span>{" "}
-                    <span className="font-serif text-orange-500">
-                      {instructor.classes[0]}
-                    </span>
+                    <span className="text-white">Instructor of:</span>
+                    <span className=" text-white">{instructor.classes[0]}</span>
                   </p>
                   <p className="mb-2 card-title text-base">
-                    <span className="text-gray-700">Current Students:</span>{" "}
-                    <span className="font-serif text-orange-500">
+                    <span className="text-white">Current Students:</span>
+                    <span className=" text-white">
                       {instructor.classes_taken}
                     </span>
                   </p>
                   <p className="mb-2 card-title text-base email-truncate">
-                    <span className="text-gray-700">Email:</span>{" "}
-                    <span className="font-serif text-orange-500 overflow-hidden truncate max-w-[200px]">
+                    <span className="text-white">Email:</span>
+                    <span className=" text-white overflow-hidden truncate max-w-[200px]">
                       {instructor.email}
                     </span>
                   </p>
                   <div className="card-actions flex mt-4">
-                    <button className="btn btn-primary flex-1 ml-2">
+                    <button className="btn bg-orange-500 text-white hover:bg-orange-700 flex-1 ml-2">
                       <FaThumbsUp className="mr-2" />
                       Like
                     </button>
-                    <button className="btn btn-primary flex-1 ml-2">
+                    <button className="btn flex bg-orange-500 text-white hover:bg-orange-700 flex-1 ml-2">
                       <FaComment className="mr-2" />
                       Comment
                     </button>
-                    <button className="btn btn-primary flex-1 ml-2">
+                    <button className="btn bg-orange-500 text-white hover:bg-orange-700 flex-1 ml-2">
                       <FaInfoCircle className="mr-2" />
                       Details
                     </button>
-                    <button className="btn btn-primary flex-1 ml-2">
+                    <button className="btn bg-orange-500 text-white hover:bg-orange-700 flex-1 ml-2">
                       <FaShareAlt className="mr-2" />
                       Share
                     </button>

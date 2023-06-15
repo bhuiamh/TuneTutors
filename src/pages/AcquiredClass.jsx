@@ -19,12 +19,9 @@ const AcquiredClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://tunetutor-server-bhuiamh.vercel.app/acquired/${item._id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:5000/acquired/${item._id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -49,7 +46,7 @@ const AcquiredClass = () => {
         <div>
           <div className=" py-4 px-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold text-black mr-3">
-              Acquired:{" "}
+              Acquired:
               <span className="text-slate-700">{acquiredClass.length}</span>
             </h2>
             <h2 className="text-2xl font-bold text-black mr-3">

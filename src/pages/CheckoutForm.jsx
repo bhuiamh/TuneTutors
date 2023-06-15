@@ -123,9 +123,9 @@ const CheckoutForm = ({ price, cart }) => {
       {cardError && <p className="tex-center text-red-500">{cardError}</p>}
       {transactionId && (
         <p className="tex-center text-green-500">
-          Transaction Complete <br />{" "}
+          Transaction Complete <br />
           <span className="text-slate-500 inline-block">
-            Transaction:{" "}
+            Transaction:
             <span className="border p-1 inline-block">{transactionId}</span>
           </span>
         </p>

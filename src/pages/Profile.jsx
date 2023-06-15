@@ -22,7 +22,7 @@ const Profile = () => {
 
   const handleSave = () => {
     setEditMode(false);
-    fetch("https://tunetutor-server.vercel.app/user", {
+    fetch("http://localhost:5000/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
+            <div className="pt-8">
               <p className="font-semibold">Phone Number:</p>
               <p>{item.phoneNumber || "Not set"}</p>
             </div>

@@ -57,7 +57,7 @@ const SignUp = () => {
     }
     createUser(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
         updateUserProfile(name, photoURL)
           .then(() => {
             const savedUser = {
@@ -69,8 +69,9 @@ const SignUp = () => {
               address,
               photoURL,
               password,
+              role: "user",
             };
-            fetch("https://tunetutor-server-bhuiamh.vercel.app/user", {
+            fetch("http://localhost:5000/user", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -100,7 +101,7 @@ const SignUp = () => {
             const errorMessage = error.message;
             Swal.fire({
               icon: "error",
-              title: `Error Code: " + ${errorCode} + ". Message: " + ${errorMessage}`,
+              title: `Error one`,
               showClass: {
                 popup: "animate__animated animate__fadeInDown",
               },
@@ -115,7 +116,7 @@ const SignUp = () => {
         const errorMessage = error.message;
         Swal.fire({
           icon: "error",
-          title: `Error Code: " + ${errorCode} + ". Message: " + ${errorMessage}`,
+          title: `error 2`,
           showClass: {
             popup: "animate__animated animate__fadeInDown",
           },

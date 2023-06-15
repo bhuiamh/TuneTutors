@@ -8,17 +8,22 @@ const EnrolledClass = () => {
   console.log(enrolled, "enrolled");
 
   return (
-    <div>
+    <div className="text-center place-items-center grid">
       <Helmet>
         <title> My Class || TuneTutors</title>
       </Helmet>
-      <div className="w-full flex justify-center items-center mt-8">
+      <h1 className="text-3xl text-center text-black font-bold mb-4">
+        My Enrolled Class
+      </h1>
+      <div className="w-full grid grid-cols-1 max-w-xs text-center place-items-center mt-8">
         {enrolled.map((classItem, index) => (
           <div key={classItem._id}>
+            <h1 className="text-orange-500 text-2xl text-center my-3">
+              Coast of item:
+              <span className="font-semibold">${classItem.amount}</span>
+            </h1>
+
             <div className="overflow-x-auto">
-              <h1 className="text-3xl text-black font-bold mb-4">
-                My Enrolled Class
-              </h1>
               <table className="table w-full">
                 <thead>
                   <tr>
