@@ -29,7 +29,7 @@ const Classes = () => {
           classItem: classItem.instructor_name,
           price: classItem.price,
         };
-        fetch("https://tunetutor-server.vercel.app/enrolledClass", {
+        fetch("https://tunetutor-server-bhuiamh.vercel.app/enrolledClass", {
           method: "POST",
           headers: {
             "content-type": "application/json",

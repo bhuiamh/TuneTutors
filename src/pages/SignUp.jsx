@@ -70,7 +70,7 @@ const SignUp = () => {
               photoURL,
               password,
             };
-            fetch("https://tunetutor-server.vercel.app/user", {
+            fetch("https://tunetutor-server-bhuiamh.vercel.app/user", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

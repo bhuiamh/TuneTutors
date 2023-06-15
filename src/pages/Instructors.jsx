@@ -11,7 +11,7 @@ const Instructors = () => {
     queryKey: ["instructors"],
     queryFn: async () => {
       const res = await fetch(
-        "https://tunetutor-server.vercel.app/instructors"
+        "https://tunetutor-server-bhuiamh.vercel.app/instructors"
       );
       return res.json();
     },

@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         axios
-          .post("https://tunetutor-server.vercel.app/jwt", {
+          .post("https://tunetutor-server-bhuiamh.vercel.app/jwt", {
             email: currentUser.email,
           })
           .then((data) => {
