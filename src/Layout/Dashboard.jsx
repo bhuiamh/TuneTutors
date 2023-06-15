@@ -6,10 +6,12 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import useUser from "../hooks/useUser";
 
 const Dashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { logOut } = useAuth();
+  const [profile, refetch] = useUser();
   const [isAdmin, isAdminLoading] = useAdmin();
   const [isInstructor, isInstructorLoading] = useInstructor();
   const navigate = useNavigate();
@@ -226,9 +228,11 @@ const Dashboard = () => {
                   </button>
                 </div>
                 <div className="hidden sm:flex sm:space-x-8">
-                  {}
-                  {isAdmin ? adminItem : userItem}
+                  {isAdmin && adminItem}
+
                   {isInstructor && instructorItem}
+
+                  {!isAdmin && !isInstructor && userItem}
                 </div>
               </div>
             </div>
@@ -237,10 +241,11 @@ const Dashboard = () => {
           {isMenuOpen && (
             <div className="sm:hidden mx-3">
               <div className="flex flex-col items-center mt-2 ">
-                {/* Dashboard Menu Items */}
-                {isAdmin ? adminItem : userItem}
+                {isAdmin && adminItem}
 
                 {isInstructor && instructorItem}
+
+                {!isAdmin && !isInstructor && userItem}
               </div>
             </div>
           )}
