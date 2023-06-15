@@ -12,8 +12,6 @@ const Dashboard = () => {
   const { logOut } = useAuth();
   const [isAdmin, isAdminLoading] = useAdmin();
   const [isInstructor, isInstructorLoading] = useInstructor();
-  console.log(isInstructor, "okkkkkkk");
-  console.log(isAdmin, "isAdmin");
   const navigate = useNavigate();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

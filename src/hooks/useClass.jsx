@@ -9,7 +9,9 @@ const useClass = () => {
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/classes");
+      const res = await fetch(
+        "https://tunetutor-server-bhuiamh.vercel.app/classes"
+      );
       return res.json();
     },
   });

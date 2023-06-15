@@ -20,7 +20,7 @@ const SocialLogIn = () => {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
         };
-        fetch("http://localhost:5000/user", {
+        fetch("https://tunetutor-server-bhuiamh.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -59,7 +59,7 @@ const SocialLogIn = () => {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
         };
-        fetch("http://localhost:5000/user", {
+        fetch("https://tunetutor-server-bhuiamh.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

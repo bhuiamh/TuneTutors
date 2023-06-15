@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const EnrolledClass = () => {
   const [enrolled, refetch] = useEnrolled();
-  console.log(enrolled, "enrolled");
 
   return (
     <div className="text-center place-items-center grid">

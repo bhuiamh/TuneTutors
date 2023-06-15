@@ -8,7 +8,6 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 const ManageClasses = () => {
   const [classes, , refetch] = useClass();
   const [axiosSecure] = useAxiosSecure();
-  console.log(classes);
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
@@ -19,7 +18,6 @@ const ManageClasses = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(item._id);
       if (result.isConfirmed) {
         axiosSecure.delete(`classes/${item._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
@@ -69,10 +67,7 @@ const ManageClasses = () => {
                   <td>{item.title}</td>
                   <td>{item.price}</td>
                   <td className="flex justify-center ">
-                    <button
-                      //   onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-outline mr-2 bg-orange-600 text-white"
-                    >
+                    <button className="btn btn-outline mr-2 bg-orange-600 text-white">
                       <FaEdit></FaEdit>
                     </button>
                     <button

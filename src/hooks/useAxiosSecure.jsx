@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../providers/useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://tunetutor-server-bhuiamh.vercel.app",
 });
 
 const useAxiosSecure = () => {

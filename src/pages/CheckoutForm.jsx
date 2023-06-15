@@ -16,7 +16,6 @@ const CheckoutForm = ({ price, cart }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  console.log(cart, "cart");
 
   useEffect(() => {
     if (price === 0) {
@@ -80,7 +79,6 @@ const CheckoutForm = ({ price, cart }) => {
         status: "service pending",
         itemNames: cart.map((item) => item.title),
       };
-      console.log(cart, "it will store");
       axiosSecure.post("/payments", payment).then((res) => {
         if (res.data.insertResult.insertedId) {
           Swal.fire({
