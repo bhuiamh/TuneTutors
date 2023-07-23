@@ -59,7 +59,7 @@ const Classes = () => {
           });
       } else {
         Swal.fire({
-          title: "Please Login to Order the Food",
+          title: "Please Login to Acquire",
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
