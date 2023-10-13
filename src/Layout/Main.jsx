@@ -6,6 +6,7 @@ import "./Main.css";
 import Slider from "../pages/Slider";
 import ClassCategory from "../pages/ClassCategory";
 import Instructors from "../pages/Instructors";
+import Map from "../pages/Map";
 
 const Main = () => {
   return (
@@ -30,6 +31,7 @@ const Main = () => {
           </div>
         </div>
       </div>
+      <Map></Map>
       <Footer></Footer>
     </div>
   );
